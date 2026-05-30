@@ -8,62 +8,40 @@
     --color-highlight: #ffffff;
 }
 
-body {
-    font-family: 'PT Sans', sans-serif;
-    font-size: 16px;
-    background-color: #e0e0e0; /* Темный фон вне приложения */
-    margin: 0;
-    display: flex;
-    justify-content: center;
-}
+body { font-family: 'PT Sans', sans-serif; background-color: #e0e0e0; margin: 0; display: flex; justify-content: center; }
+.app-container { width: 390px; min-height: 844px; background-color: var(--color-bg); box-shadow: 0 10px 30px rgba(0,0,0,0.3); display: flex; flex-direction: column; overflow-x: hidden;}
 
-/* Контейнер мобильного приложения */
-.app-container {
-    width: 390px;
-    min-height: 844px;
-    background-color: var(--color-bg);
-    box-shadow: 0 0 20px rgba(0,0,0,0.2);
-    position: relative;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-}
+/* Шапка */
+.header { background: var(--color-dark); color: var(--color-highlight); padding: 20px; text-align: center; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; }
+.header img.logo { width: 60px; margin-bottom: 10px; }
+.header h1 { font-size: 24px; margin: 0; }
 
-h1 { font-size: 36px; font-weight: bold; color: var(--color-dark); margin: 20px; text-align: center; }
-h2 { font-size: 24px; font-weight: bold; color: var(--color-dark); margin: 15px 20px; }
-h3 { font-size: 18px; font-weight: bold; color: var(--color-primary); }
-p, label, input, select { font-size: 16px; font-family: 'PT Sans', sans-serif; }
+h2 { font-size: 20px; color: var(--color-dark); margin: 20px; border-bottom: 2px solid var(--color-primary); padding-bottom: 5px; }
+p, label, input, select { font-size: 16px; margin: 5px 0; }
 .aux-text { font-size: 12px; font-style: italic; color: var(--color-gray); }
 
-.form-group { padding: 10px 20px; display: flex; flex-direction: column; gap: 5px; }
-input, select { 
-    padding: 10px; 
-    border: 1px solid var(--color-gray); 
-    border-radius: 5px; 
-    background-color: var(--color-highlight);
-}
-button {
-    background-color: var(--color-primary);
-    color: var(--color-highlight);
-    border: none;
-    padding: 12px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 5px;
-    margin: 20px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
+/* Формы */
+.form-group { padding: 10px 20px; display: flex; flex-direction: column; }
+input, select, textarea { padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-family: 'PT Sans'; }
+input:focus, select:focus { border: 1px solid var(--color-primary); outline: none; }
+.error-hint { color: red; font-size: 12px; }
+
+/* Кнопки */
+button { background-color: var(--color-primary); color: var(--color-highlight); border: none; padding: 15px 20px; font-size: 16px; font-weight: bold; border-radius: 8px; margin: 15px 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; }
 button:hover { background-color: var(--color-dark); }
-.error-hint { color: red; font-size: 12px; font-style: italic; }
+.btn-secondary { background-color: var(--color-gray); }
+
+/* Карточки */
+.card { background: var(--color-highlight); margin: 10px 20px; padding: 15px; border-radius: 12px; border-left: 6px solid var(--color-primary); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+.card-header { display: flex; align-items: center; gap: 10px; font-weight: bold; font-size: 18px; color: var(--color-primary); }
+.icon { width: 24px; height: 24px; }
 
 /* Слайдер */
-.slider-container { width: 100%; height: 200px; position: relative; overflow: hidden; background: var(--color-gray); }
-.slide { width: 100%; height: 100%; position: absolute; transition: opacity 0.5s; opacity: 0; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; }
+.slider-container { width: 90%; height: 180px; margin: 10px auto; border-radius: 12px; position: relative; overflow: hidden; }
+.slide { width: 100%; height: 100%; position: absolute; opacity: 0; transition: opacity 0.5s; }
 .slide.active { opacity: 1; z-index: 1; }
-.slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); border: none; color: white; margin: 0; padding: 10px; z-index: 2; }
+.slide img { width: 100%; height: 100%; object-fit: cover; }
+.slide-title { position: absolute; bottom: 0; width: 100%; background: rgba(13, 71, 161, 0.8); color: white; text-align: center; padding: 10px 0; font-weight: bold; }
+.slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); border: none; color: white; z-index: 2; border-radius: 50%; width: 35px; height: 35px; margin: 0; padding: 0;}
 .prev { left: 10px; }
 .next { right: 10px; }
-
-/* Карточки заявок */
-.card { background: var(--color-highlight); margin: 10px 20px; padding: 15px; border-radius: 8px; border-left: 5px solid var(--color-primary); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }

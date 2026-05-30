@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+    --color-primary: #007bff;
+    --color-dark: #0d47a1;
+    --color-gray: #6c757d;
+    --color-bg: #f8f9fa;
+    --color-highlight: #ffffff;
+}
+
+body {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 16px;
+    background-color: #e0e0e0; /* Темный фон вне приложения */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Контейнер мобильного приложения */
+.app-container {
+    width: 390px;
+    min-height: 844px;
+    background-color: var(--color-bg);
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    position: relative;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 { font-size: 36px; font-weight: bold; color: var(--color-dark); margin: 20px; text-align: center; }
+h2 { font-size: 24px; font-weight: bold; color: var(--color-dark); margin: 15px 20px; }
+h3 { font-size: 18px; font-weight: bold; color: var(--color-primary); }
+p, label, input, select { font-size: 16px; font-family: 'PT Sans', sans-serif; }
+.aux-text { font-size: 12px; font-style: italic; color: var(--color-gray); }
+
+.form-group { padding: 10px 20px; display: flex; flex-direction: column; gap: 5px; }
+input, select { 
+    padding: 10px; 
+    border: 1px solid var(--color-gray); 
+    border-radius: 5px; 
+    background-color: var(--color-highlight);
+}
+button {
+    background-color: var(--color-primary);
+    color: var(--color-highlight);
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+button:hover { background-color: var(--color-dark); }
+.error-hint { color: red; font-size: 12px; font-style: italic; }
+
+/* Слайдер */
+.slider-container { width: 100%; height: 200px; position: relative; overflow: hidden; background: var(--color-gray); }
+.slide { width: 100%; height: 100%; position: absolute; transition: opacity 0.5s; opacity: 0; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; }
+.slide.active { opacity: 1; z-index: 1; }
+.slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); border: none; color: white; margin: 0; padding: 10px; z-index: 2; }
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Карточки заявок */
+.card { background: var(--color-highlight); margin: 10px 20px; padding: 15px; border-radius: 8px; border-left: 5px solid var(--color-primary); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
